@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+	<h1>New comment</h1>
+	<form method="post" class="post-form">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" onclick="window.history.back(); return false;" class="btn save btn-default" style="margin-left:10px">Back</button>
+		<button type="submit" class="btn save btn-default">Send</button>
+		
+		<!-- <a href="#" onclick="window.history.back(); return false;" class="button cancel-link"><< Back</a> -->
+	</form>
+{% endblock %}

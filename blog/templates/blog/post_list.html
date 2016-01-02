@@ -10,10 +10,12 @@
 		<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 		{% if post.text|length > 500 %}
 			<p>{{ post.text|safe|truncatewords:"150"|linebreaks }}</p>
-			<a href="{% url 'post_detail' pk=post.pk %}">Read more >></a>
+			<a href="{% url 'post_detail' pk=post.pk %}" style="float:right">Read more >></a>
 		{% else %}
 			<p>{{ post.text|linebreaks }}</p>
 		{% endif %}
+		<br/>
+		<a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 	</div>
 	{% endfor %}
 {% endblock %}
