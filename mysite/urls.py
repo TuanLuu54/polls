@@ -20,8 +20,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blogs', include('blog.urls')),
-    url(r'^polls', include('polls.urls')),
+    # url(r'^blogs', include('blog.urls')),
+    url(r'^polls/', include('polls.urls')),
+    #url(r'^comments/', include('comments.urls')),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/login/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),	
 )
